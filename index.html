@@ -6,6 +6,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/solarized-light.min.css">
 </head>
 <body class="shower list">
 
@@ -21,25 +22,34 @@
 			<img id="ghost" class="cover" src="pictures/ghost_in_the_shell.jpg" alt="Ghost in the shell">
 		</figure>
 		<style>
+			:root {
+				--color-0: #fff;
+				--color-1: #000;
+			}
+
 			#ghost {
 				max-width: none;
 			}
 
 			#cover h2 {
 				margin: 30px 0 0;
-				color:#fff;
+				color: var(--color-0);
 				text-align: center;
-				font-size: 4.3rem;
+				font-size: 6rem;
+				text-shadow: 1px 1px 2px var(--color-1);
 			}
+
 			#cover p {
-				margin:10px 0 0;
-				text-align:center;
-				color:#FFF;
-				font-style:italic;
-				font-size:20px;
+				margin: 10px 0 0;
+				text-align: center;
+				color: var(--color-0);
+				font-style: italic;
+				font-size: 20px;
+				text-shadow: 1px 1px 2px var(--color-1);
 			}
+
 			#cover p a {
-				color:#FFF;
+				color: var(--color-0);
 			}
 		</style>
 	</section>
@@ -50,19 +60,98 @@
 	</section>
 
 	<section class="slide">
+		<pre class="place" style="font-size: 2rem;">
+			<code class="hljs css">
+:root {
+	<mark>--color-0: tomato;</mark>
+}
+
+h1 { color: var(--color-0); }
+.block { color: var(--color-0); }
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<pre class="place" style="font-size: 2rem;">
+			<code class="hljs css">
+.foo {
+	--gap: 20;
+	margin-top: var(--gap)px;
+	padding-bottom: calc(var(--gap) * 1px);
+}
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide">
 		<p class="ciu_embed" data-feature="css-variables" data-periods="future_1,current,past_1,past_2">
-			<a href="http://caniuse.com/#feat=css-variables">Can I Use css-variables?</a> Data on support for the css-variables feature across the major browsers from caniuse.com.
+			<a href="http://caniuse.com/#feat=css-variables">Can I Use css-variables?</a>
+			Data on support for the css-variables feature across the major browsers from caniuse.com.
 		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Usage now</h2>
+
+		<ul>
+			<li><a href="https://github.com/MadLittleMods/postcss-css-variables">postcss-css-variables</a></li>
+		</ul>
+
+		<h2>Info</h2>
+
+		<ul>
+			<li><a href="https://drafts.csswg.org/css-variables/">CSS Custom Properties for Cascading Variables Module</a></li>
+		</ul>
+	</section>
+
+	<section class="slide black">
+		<img id="vscode" class="cover" src="pictures/vscode.gif" alt="VSCode">
 	</section>
 
 	<section class="slide">
 		<h2 class="shout">@apply rule</h2>
 	</section>
 
+
+	<section class="slide">
+		<pre class="place">
+			<code class="hljs css">
+:root {
+	--pink-theme: {
+		color: #6a8759;
+		background-color: #f64778;
+	}
+}
+
+body {
+	<mark>@apply --pink-theme;</mark>
+}
+			</code>
+		</pre>
+	</section>
+
 	<section class="slide">
 		<p class="ciu_embed" data-feature="css-apply-rule" data-periods="future_1,current,past_1">
-			<a href="http://caniuse.com/#feat=css-apply-rule">Can I Use css-apply-rule?</a> Data on support for the css-apply-rule feature across the major browsers from caniuse.com.
+			<a href="http://caniuse.com/#feat=css-apply-rule">Can I Use css-apply-rule?</a>
+			Data on support for the css-apply-rule feature across the major browsers from caniuse.com.
 		</p>
+	</section>
+
+	<section class="slide">
+		<h2>Usage now</h2>
+
+		<ul>
+			<li><b>@apply</b> is supported in <a href="https://codereview.chromium.org/1645433002">Chrome Dev and Canary</a> under the
+				<code>chrome://flags/#enable-experimental-web-platform-features</code> flag (<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=586974">issue</a>)</li>
+			<li><a href="https://github.com/pascalduez/postcss-apply">postcss-apply</a></li>
+		</ul>
+
+		<h2>Info</h2>
+
+		<ul>
+			<li><a href="https://tabatkins.github.io/specs/css-apply-rule/">CSS @apply Rule</a></li>
+		</ul>
 	</section>
 
 	<section class="slide">
@@ -70,172 +159,113 @@
 	</section>
 
 	<section class="slide">
-		<p class="ciu_embed" data-feature="css-featurequeries" data-periods="future_1,current,past_1,past_2">
-			<a href="http://caniuse.com/#feat=css-featurequeries">Can I Use css-featurequeries?</a> Data on support for the css-featurequeries feature across the major browsers from caniuse.com.
-		</p>
-	</section>
+		<h2 style="font-size: 4rem;">🤔</h2>
 
-
-
-
-
-	<section class="slide">
-		<h2>Shower key features</h2>
-		<ol>
-			<li>Built on HTML, CSS and vanilla JavaScript</li>
-			<li>Works in all modern browsers</li>
-			<li>Themes are separated from engine</li>
-			<li>Modular and extensible</li>
-			<li>Fully keyboard accessible</li>
-			<li>Printable to PDF</li>
-		</ol>
-		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
-	</section>
-
-	<section class="slide">
-		<h2>Plain text on your slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-	</section>
-
-	<section class="slide">
-		<h2>Two columns if you like</h2>
-		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-	</section>
-
-	<section class="slide">
-		<h2>All kind of lists</h2>
-		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
-			</li>
-			<li>Look, seven rows exactly!</li>
+		<ol style="font-size: 2.5rem;">
+			<li><a href="https://modernizr.com/">Modernizr</a></li>
+			<li><a href="http://featurejs.com/">Feature.js</a></li>
 		</ol>
 	</section>
 
 	<section class="slide">
-		<h2>Serious citations</h2>
-		<figure>
-			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
-		</figure>
-	</section>
-
-	<section class="slide">
-		<h2>Code samples</h2>
-		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code class="mark">&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
+		<pre class="place" style="font-size: 2rem;">
+			<code class="hljs css">
+@support not ( display: flex ) {
+	.block { display: table; }
+}
+			</code>
 		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
+		<pre class="place" style="font-size: 2rem;">
+			<code class="hljs css">
+@support ( display: flexbox )
+		and
+		( not ( display: flex ) ) {
+	.block { display: flexbox; }
+}
+			</code>
+		</pre>
 	</section>
 
-	<section class="slide" id="picture">
-		<h2>Pictures</h2>
-		<figure>
-			<img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
+	<section class="slide">
+		<pre>
+			<code>
+@supports (display: grid) {
+   // code
+ }
+			</code>
+		</pre>
+
+		<h2>Info</h2>
+
+		<ul>
+			<li><a href="https://www.w3.org/TR/css3-conditional/#at-supports">Feature queries: the ‘@supports’ rule</a></li>
+			<li><a href="https://hacks.mozilla.org/2016/08/using-feature-queries-in-css/">Using Feature Queries in CSS</a></li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<p class="ciu_embed" data-feature="css-featurequeries" data-periods="future_1,current,past_1,past_2">
+			<a href="http://caniuse.com/#feat=css-featurequeries">Can I Use css-featurequeries?</a>
+			Data on support for the css-featurequeries feature across the major browsers from caniuse.com.
+		</p>
+	</section>
+
+	<section class="slide" id="qa">
+		<h2>???</h2>
+		<img src="pictures/wat.png" alt="WAT?!1" class="cover" id="wat">
 		<style>
-			#picture h2 {
-				color:#FFF;
-				}
+			#qa h2 {
+				color: var(--color-0);
+			}
+
+			#wat {
+				max-width: none;
+			}
 		</style>
 	</section>
 
-	<section class="slide">
-		<h2 class="shout shrink">You can even shout this way</h2>
-	</section>
-
-	<section class="slide">
-		<h2>Inner navigation</h2>
-		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
-		</ol>
-	</section>
-
-	<section class="slide grid">
-		<h2>All nicely aligned to grid</h2>
-	</section>
-
-	<section class="slide" id="see-more">
+	<section class="slide" id="bb">
 		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
+			<span style="font-size: 5rem;">✌</span>
+			<a href="http://r3nya.ru">@r3nya</a>
+
+			<br>
+
+			<small class="link">
+				<span>👉</span>
+				<a href="http://r3nya.ru/ncf">r3nya.ru/ncf</a>
+			</small>
 		</h2>
 		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
+			#bb h2 {
+				font-size: 6.5rem;
+			}
+
+			.link {
+				display: block;
+				font-size: 5rem;
+				margin-top: 8rem;
+			}
 		</style>
 	</section>
 
-	<footer class="badge">
-		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
-	</footer>
+	<a href="https://github.com/r3nya/new-css-features" class="github-corner">
+		<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;">
+			<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+			<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+			<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+		</svg>
+	</a>
 
 	<div class="progress"></div>
 
 	<script src="node_modules/shower-core/shower.min.js"></script>
 	<script src="//cdn.jsdelivr.net/caniuse-embed/1.0.1/caniuse-embed.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 
 </body>
 </html>
